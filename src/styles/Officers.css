@@ -1,0 +1,105 @@
+/* Officers.css — Tema Navy/Gold */
+
+.semestre-section {
+  border-bottom: 1px solid var(--border-light);
+}
+
+.semestre-section:nth-child(even) {
+  background: rgba(4,6,26,0.45);
+}
+
+.semestre-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.semestre-titulo {
+  font-size: var(--fs-5xl);
+  color: #fff;
+}
+
+.officers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-6);
+}
+
+/* ── Hall of fame ──────────────────────────────────────────── */
+.hall-section { background: transparent; }
+
+.hall-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 640px;
+}
+
+.hall-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  backdrop-filter: blur(8px);
+  transition: border-color var(--transition-base),
+              box-shadow    var(--transition-base),
+              transform     var(--transition-base);
+}
+
+.hall-card:hover {
+  border-color: var(--border-gold);
+  box-shadow: var(--shadow-gold);
+  transform: translateX(4px);
+}
+
+.hall-emoji {
+  font-size: 32px;
+  flex-shrink: 0;
+  line-height: 1;
+  filter: drop-shadow(0 0 6px rgba(245,197,24,0.3));
+}
+
+.hall-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.hall-anio {
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-500);
+}
+
+.hall-name {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.hall-role {
+  font-family: var(--font-primary);
+  font-size: var(--fs-sm);
+  color: var(--navy-300);
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+@media (max-width: 480px) {
+  .officers-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 360px) {
+  .officers-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,176 @@
+/* About.css — Tema Navy/Gold */
+
+.about-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: start;
+}
+
+.about-mission-text {
+  font-size: var(--fs-lg);
+  color: var(--navy-200);
+  line-height: 1.85;
+  margin-bottom: var(--space-8);
+  max-width: none;
+  font-family: var(--font-primary);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.about-vision {
+  background: rgba(245,197,24,0.07);
+  border-left: 3px solid var(--gold-500);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: var(--space-5) var(--space-6);
+}
+
+.about-vision-title {
+  font-size: var(--fs-2xl);
+  color: var(--gold-400);
+  margin-bottom: var(--space-2);
+}
+
+.about-vision p {
+  font-size: var(--fs-base);
+  color: var(--navy-200);
+  line-height: 1.75;
+  max-width: none;
+  font-family: var(--font-primary);
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+/* Áreas grid */
+.about-areas-title {
+  font-size: var(--fs-2xl);
+  color: #fff;
+  margin-bottom: var(--space-5);
+}
+
+.areas-grid-sm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.area-chip {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-primary);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--navy-200);
+  text-transform: none;
+  letter-spacing: 0;
+  transition: all var(--transition-fast);
+  backdrop-filter: blur(6px);
+}
+
+.area-chip:hover {
+  background: rgba(245,197,24,0.10);
+  border-color: var(--border-gold);
+  color: var(--gold-400);
+}
+
+/* ── Valores ───────────────────────────────────────────────── */
+.valores-section {
+  background: rgba(4,6,26,0.50);
+}
+
+.valor-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.valor-icon {
+  font-size: 30px;
+  line-height: 1;
+  filter: drop-shadow(0 0 6px rgba(245,197,24,0.25));
+}
+
+.valor-titulo {
+  font-family: var(--font-display);
+  font-size: var(--fs-3xl);
+  color: #fff;
+  font-weight: 700;
+}
+
+.valor-desc {
+  font-size: var(--fs-base);
+  color: var(--navy-200);
+  line-height: 1.75;
+  max-width: none;
+  font-family: var(--font-primary);
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+/* ── Historia ──────────────────────────────────────────────── */
+.historia-section { background: transparent; }
+
+.historia-timeline {
+  display: flex;
+  flex-direction: column;
+  max-width: 720px;
+}
+
+.historia-item {
+  display: flex;
+  gap: var(--space-6);
+  padding-bottom: var(--space-8);
+  position: relative;
+}
+
+.historia-item::before {
+  content: '';
+  position: absolute;
+  left: 54px;
+  top: 32px;
+  bottom: 0;
+  width: 1px;
+  background: var(--border-light);
+}
+
+.historia-item:last-child::before { display: none; }
+
+.historia-anio {
+  font-family: var(--font-display);
+  font-size: var(--fs-4xl);
+  color: var(--gold-500);
+  font-weight: 800;
+  min-width: 72px;
+  padding-top: 2px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.historia-hito {
+  font-family: var(--font-primary);
+  font-size: var(--fs-lg);
+  color: var(--navy-200);
+  line-height: 1.75;
+  padding-top: var(--space-1);
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .about-split    { grid-template-columns: 1fr; gap: var(--space-10); }
+  .areas-grid-sm  { grid-template-columns: 1fr; }
+  .historia-item  { flex-direction: column; gap: var(--space-1); }
+  .historia-item::before { display: none; }
+  .historia-anio  { font-size: var(--fs-3xl); }
+}
