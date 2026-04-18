@@ -3,3 +3,6 @@ export { default as Button } from './Button';
 export { default as Badge } from './Badge';
 export { default as Timeline } from './Timeline';
 export { default as OfficerCard } from './OfficerCard';
+export { default as Header } from './Header';
+export { default as Footer } from './Footer';
+export { default as Layout } from './Layouts/Layout';
