@@ -18,7 +18,7 @@ src/
 └── App.jsx         # Orquestador de rutas y lógica global
 ```
 
-### 🎯 Patrones Clave
+### Patrones Clave
 
 - **Barrel Pattern (Patrón de Barril):** Utilizamos archivos `index.js` en carpetas estratégicas (como `/components`) para centralizar las exportaciones. Esto permite realizar importaciones limpias y legibles:  
   `import { Header, Footer, Layout } from './components';`
