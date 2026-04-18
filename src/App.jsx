@@ -118,7 +118,7 @@ function Footer() {
 /* ─── App ─────────────────────────────────────────────────── */
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <div className="site-wrapper">
         <Header />
         <Routes>
