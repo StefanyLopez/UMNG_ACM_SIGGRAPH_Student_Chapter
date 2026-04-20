@@ -1,47 +1,47 @@
 import React from 'react';
 import { Card, Badge } from '../components';
+import { useTranslation } from '../context/LanguageContext';
 import '../styles/About.css';
-
-/* ─── Datos ─────────────────────────────────────────────── */
-const areas = [
-  { icon: '🎨', nombre: 'Gráficos 3D' },
-  { icon: '🎬', nombre: 'Animación' },
-  { icon: '🕶️', nombre: 'Realidad Virtual' },
-  { icon: '📱', nombre: 'Realidad Aumentada' },
-  { icon: '🖥️', nombre: 'UI / UX Design' },
-  { icon: '✨', nombre: 'Efectos Visuales' },
-  { icon: '🎮', nombre: 'Videojuegos' },
-  { icon: '🤖', nombre: 'IA Generativa' },
-];
-
-const valores = [
-  { icon: '🔬', titulo: 'Rigor técnico', desc: 'Aprendemos las herramientas correctamente antes de romper las reglas. La técnica sólida libera la creatividad.' },
-  { icon: '🌱', titulo: 'Aprendizaje abierto', desc: 'Todo el mundo fue principiante. Celebramos las preguntas y los errores como parte del proceso.' },
-  { icon: '🤝', titulo: 'Comunidad activa', desc: 'Construimos una red real: nos apoyamos, colaboramos en proyectos y celebramos los logros del otro.' },
-  { icon: '🌍', titulo: 'Impacto local', desc: 'Conectamos a la industria colombiana con el estándar global de ACM SIGGRAPH desde Bogotá.' },
-];
-
-const historia = [
-  { año: '2024-2', hito: 'Fundación del chapter en la UMNG como primer capítulo estudiantil de ACM SIGGRAPH en Latinoamerica.' },
-  { año: '2024-2', hito: 'Primer ciclo de workshops: Blender, Substance Painter y principios de Modelado. Más de 80 asistentes.' },
-  { año: '2025-2', hito: 'Afiliación oficial a ACM SIGGRAPH International. Primeros miembros participando en la conferencia SIGGRAPH 2025 Vancouver.' },
-  { año: '2026-2', hito: 'Lanzamiento del sitio web oficial y apertura de convocatoria semestral de nuevos miembros.' },
-];
 
 /* ─── Componente ─────────────────────────────────────────── */
 export default function About() {
+  const { t } = useTranslation();
+
+  const areas = [
+    { icon: '🎨', nombre: t.about.areas.graphics },
+    { icon: '🎬', nombre: t.about.areas.animation },
+    { icon: '🕶️', nombre: t.about.areas.vr },
+    { icon: '📱', nombre: t.about.areas.ar },
+    { icon: '🖥️', nombre: t.about.areas.uiux },
+    { icon: '✨', nombre: t.about.areas.vfx },
+    { icon: '🎮', nombre: t.about.areas.games },
+    { icon: '🤖', nombre: t.about.areas.ai },
+  ];
+
+  const valores = [
+    { icon: '🔬', titulo: t.about.values.rigor.title, desc: t.about.values.rigor.desc },
+    { icon: '🌱', titulo: t.about.values.learning.title, desc: t.about.values.learning.desc },
+    { icon: '🤝', titulo: t.about.values.community.title, desc: t.about.values.community.desc },
+    { icon: '🌍', titulo: t.about.values.impact.title, desc: t.about.values.impact.desc },
+  ];
+
+  const historia = [
+    { año: '2024-2', hito: t.about.history.h1 },
+    { año: '2024-2', hito: t.about.history.h2 },
+    { año: '2025-2', hito: t.about.history.h3 },
+    { año: '2026-2', hito: t.about.history.h4 },
+  ];
+
   return (
     <main className="about">
 
       {/* ── Header ── */}
-      <section className="page-hero" aria-label="Sobre nosotros">
+      <section className="page-hero" aria-label={t.nav.about}>
         <div className="container">
-          <Badge variant="info" size="sm">Sobre el chapter</Badge>
-          <h1 className="page-hero-title">Una comunidad para<br />creadores digitales</h1>
+          <Badge variant="info" size="sm">{t.about.hero.eyebrow}</Badge>
+          <h1 className="page-hero-title">{t.about.hero.title}<br />{t.about.hero.title_accent}</h1>
           <p className="page-hero-subtitle">
-            El UMNG ACM SIGGRAPH Student Chapter es el espacio donde estudiantes
-            de ingeniería, diseño y multimedia se reúnen para explorar la intersección
-            entre arte y tecnología.
+            {t.about.hero.subtitle}
           </p>
         </div>
       </section>
@@ -51,26 +51,21 @@ export default function About() {
         <div className="container about-split">
           <div className="about-mission">
             <span className="accent-line" aria-hidden="true" />
-            <h2 id="mision-titulo" className="section-title">Misión</h2>
+            <h2 id="mision-titulo" className="section-title">{t.about.mission.title}</h2>
             <p className="about-mission-text">
-              Formar una comunidad universitaria de alta calidad alrededor del
-              estudio, la práctica y la difusión de los gráficos por computador,
-              la animación digital y los medios interactivos — con estándares
-              internacionales ACM SIGGRAPH.
+              {t.about.mission.text}
             </p>
 
             <div className="about-vision">
-              <h3 className="about-vision-title">Visión</h3>
+              <h3 className="about-vision-title">{t.about.vision.title}</h3>
               <p>
-                Ser el capítulo de referencia en Latinoamérica para la formación
-                creativo-técnica en artes digitales, conectando a la comunidad
-                universitaria con la industria global.
+                {t.about.vision.text}
               </p>
             </div>
           </div>
 
           <div className="about-areas">
-            <h3 className="about-areas-title">Áreas de enfoque</h3>
+            <h3 className="about-areas-title">{t.about.areas.title}</h3>
             <ul className="areas-grid-sm">
               {areas.map((a, i) => (
                 <li key={i} className="area-chip">
@@ -88,7 +83,7 @@ export default function About() {
         <div className="container">
           <header className="section-header text-center">
             <span className="accent-line" style={{ margin: '0 auto var(--space-4)' }} aria-hidden="true" />
-            <h2 id="valores-titulo" className="section-title">Nuestros valores</h2>
+            <h2 id="valores-titulo" className="section-title">{t.about.values.title}</h2>
           </header>
 
           <ul className="grid grid-auto">
@@ -110,8 +105,8 @@ export default function About() {
         <div className="container">
           <header className="section-header">
             <span className="accent-line" aria-hidden="true" />
-            <h2 id="historia-titulo" className="section-title">Historia del chapter</h2>
-            <p className="section-subtitle">Dos años construyendo comunidad.</p>
+            <h2 id="historia-titulo" className="section-title">{t.about.history.title}</h2>
+            <p className="section-subtitle">{t.about.history.subtitle}</p>
           </header>
 
           <ol className="historia-timeline">

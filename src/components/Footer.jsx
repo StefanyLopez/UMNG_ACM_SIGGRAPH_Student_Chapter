@@ -1,8 +1,11 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from '../context/LanguageContext';
 
 const Footer = () => {
+  const { t } = useTranslation();
   const year = new Date().getFullYear();
+  
   return (
     <footer className="site-footer" role="contentinfo">
       <div className="container footer-inner">
@@ -12,19 +15,18 @@ const Footer = () => {
             <span className="footer-chapter-name">UMNG ACM SIGGRAPH</span>
           </div>
           <p className="footer-desc">
-            Capítulo estudiantil de la Universidad Militar Nueva Granada.
-            Conectamos arte y tecnología en Bogotá.
+            {t.footer.description}
           </p>
         </div>
 
         <div className="footer-links">
           <div className="footer-col">
-            <h3 className="footer-col-title">Páginas</h3>
+            <h3 className="footer-col-title">{t.footer.links}</h3>
             <ul>
-              <li><NavLink to="/" className="footer-link">Inicio</NavLink></li>
-              <li><NavLink to="/about" className="footer-link">Nosotros</NavLink></li>
-              <li><NavLink to="/events" className="footer-link">Eventos</NavLink></li>
-              <li><NavLink to="/officers" className="footer-link">Equipo</NavLink></li>
+              <li><NavLink to="/" className="footer-link">{t.nav.home}</NavLink></li>
+              <li><NavLink to="/about" className="footer-link">{t.nav.about}</NavLink></li>
+              <li><NavLink to="/events" className="footer-link">{t.nav.events}</NavLink></li>
+              <li><NavLink to="/officers" className="footer-link">{t.nav.officers}</NavLink></li>
             </ul>
           </div>
 
@@ -38,7 +40,7 @@ const Footer = () => {
           </div>
 
           <div className="footer-col">
-            <h3 className="footer-col-title">Contacto</h3>
+            <h3 className="footer-col-title">{t.footer.social}</h3>
             <ul>
               <li>
                 <a href="mailto:siggraph@umng.edu.co" className="footer-link">

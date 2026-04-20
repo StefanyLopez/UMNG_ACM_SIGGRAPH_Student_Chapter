@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Badge, Button, Timeline } from '../components';
+import { useTranslation } from '../context/LanguageContext';
 import '../styles/Events.css';
 
 /* ─── Datos ─────────────────────────────────────────────── */
@@ -91,26 +92,29 @@ const tipoColor = {
   jam:      'warning',
 };
 
-function formatFecha(dateStr) {
+function formatFecha(dateStr, lang) {
   if (!dateStr) return '';
   const [y, m, d] = dateStr.split('-');
-  const meses = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  const mesesEs = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  const mesesEn = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const meses = lang === 'en' ? mesesEn : mesesEs;
   return `${parseInt(d)} ${meses[parseInt(m)-1]} ${y}`;
 }
 
 /* ─── Componente ─────────────────────────────────────────── */
 export default function Events() {
+  const { t, language } = useTranslation();
+
   return (
     <main className="events">
 
       {/* ── Page header ── */}
-      <section className="page-hero" aria-label="Eventos">
+      <section className="page-hero" aria-label={t.nav.events}>
         <div className="container">
-          <Badge variant="info" size="sm">Calendario</Badge>
-          <h1 className="page-hero-title">Eventos del chapter</h1>
+          <Badge variant="info" size="sm">{t.events.hero.eyebrow}</Badge>
+          <h1 className="page-hero-title">{t.events.hero.title}</h1>
           <p className="page-hero-subtitle">
-            Workshops, charlas, game jams y más. Todos los eventos son gratuitos
-            para miembros y abiertos a la comunidad UMNG.
+            {t.events.hero.subtitle}
           </p>
         </div>
       </section>
@@ -120,7 +124,7 @@ export default function Events() {
         <div className="container">
           <header className="section-header">
             <span className="accent-line" aria-hidden="true" />
-            <h2 id="proximos-titulo" className="section-title">Próximos eventos</h2>
+            <h2 id="proximos-titulo" className="section-title">{t.events.upcoming.title}</h2>
           </header>
 
           <ul className="grid grid-auto events-grid">
@@ -131,16 +135,16 @@ export default function Events() {
                     <Badge variant={tipoColor[ev.tipo] || 'neutral'} size="sm">
                       {ev.tipo.charAt(0).toUpperCase() + ev.tipo.slice(1)}
                     </Badge>
-                    <time className="event-fecha">{formatFecha(ev.fecha)}</time>
+                    <time className="event-fecha">{formatFecha(ev.fecha, language)}</time>
                   </div>
 
                   <h3 className="event-titulo">{ev.titulo}</h3>
                   <p className="event-desc">{ev.descripcion}</p>
 
                   <div className="event-meta">
-                    <span>📍 {ev.lugar}</span>
-                    <span>🕐 {ev.hora}</span>
-                    <span>👥 {ev.capacidad} cupos</span>
+                    <span>{t.events.meta.location.replace('{place}', ev.lugar)}</span>
+                    <span>{t.events.meta.time.replace('{time}', ev.hora)}</span>
+                    <span>{t.events.meta.capacity.replace('{capacity}', ev.capacidad)}</span>
                   </div>
 
                   <div className="event-tags">
@@ -150,7 +154,7 @@ export default function Events() {
                   </div>
 
                   <Button href={ev.registroUrl} variant="primary" size="sm" className="event-cta">
-                    Registrarme →
+                    {t.events.meta.register}
                   </Button>
                 </Card>
               </li>
@@ -164,9 +168,9 @@ export default function Events() {
         <div className="container">
           <header className="section-header">
             <span className="accent-line" aria-hidden="true" />
-            <h2 id="pasados-titulo" className="section-title">Eventos recientes</h2>
+            <h2 id="pasados-titulo" className="section-title">{t.events.past.title}</h2>
             <p className="section-subtitle">
-              Lo que hemos hecho este semestre.
+              {t.events.past.subtitle}
             </p>
           </header>
 
@@ -180,14 +184,13 @@ export default function Events() {
           <div className="archivo-box">
             <span className="archivo-icon" aria-hidden="true">📁</span>
             <div>
-              <h2 id="archivo-titulo" className="archivo-titulo">Archivo completo</h2>
+              <h2 id="archivo-titulo" className="archivo-titulo">{t.events.archive.title}</h2>
               <p className="archivo-desc">
-                ¿Buscas un evento anterior? El archivo con todos los eventos del chapter
-                estará disponible próximamente.
+                {t.events.archive.desc}
               </p>
             </div>
             <Button variant="tertiary" size="sm" disabled>
-              Próximamente
+              {t.events.archive.btn}
             </Button>
           </div>
         </div>

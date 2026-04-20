@@ -159,6 +159,31 @@
   border-radius: var(--radius-full);
 }
 
+.lang-switcher {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-gold);
+  color: var(--gold-500);
+  padding: 4px 8px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  transition: all var(--transition-fast);
+  margin-left: var(--space-4);
+  min-width: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lang-switcher:hover {
+  background: var(--gold-500);
+  color: var(--navy-900);
+  box-shadow: 0 0 12px rgba(245, 197, 24, 0.4);
+}
+
 /* ── Page hero (reutilizable) ───────────────────────────────── */
 .page-hero {
   background: linear-gradient(180deg,
