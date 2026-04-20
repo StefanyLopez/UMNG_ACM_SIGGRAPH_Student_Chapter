@@ -162,6 +162,83 @@ const translations = {
         time: '🕐 {time}',
         capacity: '👥 {capacity} cupos',
         register: 'Registrarme →',
+      },
+      data: {
+        upcoming: [
+          {
+            titulo: 'Workshop: Introducción a Blender',
+            descripcion: 'Aprende los fundamentos de Blender: navegación, modelado básico y render. Perfecto para principiantes sin experiencia previa.',
+            lugar: 'Sala de Cómputo UMNG',
+          },
+          {
+            titulo: 'Charla: VFX en la industria colombiana',
+            descripcion: 'Profesionales del sector audiovisual comparten su experiencia creando efectos visuales para cine y televisión nacional.',
+            lugar: 'Auditorio Principal UMNG',
+          },
+          {
+            titulo: 'Game Jam Interna — Primavera 2026',
+            descripcion: 'Crea un videojuego en 48 horas con tu equipo. Tema a revelar el día del evento. Todos los niveles son bienvenidos.',
+            lugar: 'Campus UMNG',
+          },
+        ],
+        past: [
+          {
+            title: 'Workshop: Motion Graphics en After Effects',
+            description: 'Introducción a la animación de texto, formas y composición de cámara con Adobe After Effects.',
+          },
+          {
+            title: 'Charla: IA Generativa y el futuro del diseño',
+            description: 'Reflexión crítica sobre el impacto de modelos generativos (Midjourney, Stable Diffusion) en el flujo de trabajo del diseñador.',
+          },
+          {
+            title: 'Workshop: Rigging de personajes en Maya',
+            description: 'Creación de esqueletos, controladores y blend shapes para personajes animables en producciones 3D.',
+          },
+          {
+            title: 'Sesión abierta: Portfolio Review',
+            description: 'Revisión colectiva de portafolios de miembros con feedback constructivo del equipo y de docentes invitados.',
+          },
+          {
+            title: 'Charla inaugural 2026: Tendencias en CG',
+            description: 'Panorama de las tendencias actuales en computer graphics: path tracing en tiempo real, NeRF y gráficos neuronales.',
+          },
+        ]
+      }
+    },
+    officers: {
+      hero: {
+        eyebrow: 'El equipo',
+        title: 'Quienes hacen',
+        title_accent: 'posible el chapter',
+        subtitle: 'Cada año, un equipo de estudiantes voluntarios organiza eventos, gestiona la comunidad y representa al chapter ante ACM SIGGRAPH International.',
+      },
+      active: 'Activo',
+      hall_of_fame: {
+        title: 'Hall of Fame',
+        subtitle: 'Officers destacados que dieron forma al chapter desde sus inicios.',
+        roles: {
+          founder: 'Fundador',
+          cofounder: 'Cofundadora',
+          first_president: 'Primera Presidente',
+        }
+      },
+      semesters: {
+        s1: 'Semestres 2025-2 - 2026-2',
+        s2: 'Semestres 2024-2 - 2025-2',
+      },
+      roles: {
+        president: 'Presidenta',
+        vice: 'Vicepresidente',
+        secretary: 'Secretario',
+        treasurer: 'Tesorero',
+        president_alt: 'Presidente',
+        vice_alt: 'Vicepresidenta',
+        secretary_alt: 'Secretaria',
+      },
+      bios: {
+        stefany: 'Especializada en desarrollo Frontend, modelado 3D y dirección de proyectos. Apasionada por la producción audiovisual y la gestión de comunidades creativas.',
+        nicolas: 'Desarrollador frontend, enfocado en crear interfaces intuitivas, funcionales y centradas en el usuario.',
+        juan: 'Desarrollador Full Stack con experiencia en producción de contenido digital. Encargado de la documentación y coordinación interna del chapter.',
       }
     }
   },
@@ -327,7 +404,84 @@ const translations = {
         location: '📍 {place}',
         time: '🕐 {time}',
         capacity: '👥 {capacity} spots',
-        register: 'Register me →',
+        register: 'Join →',
+      },
+      data: {
+        upcoming: [
+          {
+            titulo: 'Workshop: Introduction to Blender',
+            descripcion: 'Learn the fundamentals of Blender: navigation, basic modeling, and rendering. Perfect for beginners with no prior experience.',
+            lugar: 'UMNG Computer Lab',
+          },
+          {
+            titulo: 'Talk: VFX in the Colombian Industry',
+            descripcion: 'Audiovisual sector professionals share their experience creating visual effects for national film and television.',
+            lugar: 'UMNG Main Auditorium',
+          },
+          {
+            titulo: 'Internal Game Jam — Spring 2026',
+            descripcion: 'Create a video game in 48 hours with your team. Theme to be revealed on the day of the event. All levels are welcome.',
+            lugar: 'UMNG Campus',
+          },
+        ],
+        past: [
+          {
+            title: 'Workshop: Motion Graphics in After Effects',
+            description: 'Introduction to text animation, shapes, and camera composition with Adobe After Effects.',
+          },
+          {
+            title: 'Talk: Generative AI and the Future of Design',
+            description: 'Critical reflection on the impact of generative models (Midjourney, Stable Diffusion) on the designer\'s workflow.',
+          },
+          {
+            title: 'Workshop: Character Rigging in Maya',
+            description: 'Creating skeletons, controllers, and blend shapes for animatable characters in 3D productions.',
+          },
+          {
+            title: 'Open Session: Portfolio Review',
+            description: 'Collective review of members\' portfolios with constructive feedback from the team and guest faculty.',
+          },
+          {
+            title: '2026 Inaugural Talk: Trends in CG',
+            description: 'Overview of current trends in computer graphics: real-time path tracing, NeRF, and neural graphics.',
+          },
+        ]
+      }
+    },
+    officers: {
+      hero: {
+        eyebrow: 'The team',
+        title: 'Those who make',
+        title_accent: 'the chapter possible',
+        subtitle: 'Each year, a team of student volunteers organizes events, manages the community, and represents the chapter before ACM SIGGRAPH International.',
+      },
+      active: 'Active',
+      hall_of_fame: {
+        title: 'Hall of Fame',
+        subtitle: 'Outstanding officers who shaped the chapter since its inception.',
+        roles: {
+          founder: 'Founder',
+          cofounder: 'Co-founder',
+          first_president: 'First President',
+        }
+      },
+      semesters: {
+        s1: 'Semesters 2025-2 - 2026-2',
+        s2: 'Semesters 2024-2 - 2025-2',
+      },
+      roles: {
+        president: 'Chair',
+        vice: 'Vice-Chair',
+        secretary: 'Secretary',
+        treasurer: 'Treasurer',
+        president_alt: 'Chair',
+        vice_alt: 'Vice-Chair',
+        secretary_alt: 'Secretary',
+      },
+      bios: {
+        stefany: 'Specialized in Frontend development, 3D modeling, and project management. Passionate about audiovisual production and creative community management.',
+        nicolas: 'Frontend developer, focused on creating intuitive, functional, and user-centered interfaces.',
+        juan: 'Full Stack developer with experience in digital content production. In charge of the chapter\'s documentation and internal coordination.',
       }
     }
   }
