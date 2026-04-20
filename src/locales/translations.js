@@ -149,7 +149,7 @@ const translations = {
         title: 'Próximos eventos',
       },
       past: {
-        title: 'Eventos recientes',
+        title: 'Eventos pasados',
         subtitle: 'Lo que hemos hecho este semestre.',
       },
       archive: {
@@ -392,7 +392,7 @@ const translations = {
         title: 'Upcoming events',
       },
       past: {
-        title: 'Recent events',
+        title: 'Past events',
         subtitle: 'What we have done this semester.',
       },
       archive: {
