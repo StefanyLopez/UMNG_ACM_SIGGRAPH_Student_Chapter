@@ -1,12 +1,15 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from '../context/LanguageContext';
 
 const Header = () => {
+  const { language, toggleLanguage, t } = useTranslation();
+
   return (
     <header className="site-header" role="banner">
       <div className="container header-inner">
         {/* Logo */}
-        <NavLink to="/" className="site-logo" aria-label="UMNG ACM SIGGRAPH - Inicio">
+        <NavLink to="/" className="site-logo" aria-label={t.nav.alt_logo}>
           <div className="logo-mark" aria-hidden="true">
             <span>S</span>
           </div>
@@ -20,10 +23,10 @@ const Header = () => {
         <nav className="site-nav" aria-label="Navegación principal">
           <ul className="nav-list">
             {[
-              { to: '/',         label: 'Inicio' },
-              { to: '/about',    label: 'Nosotros' },
-              { to: '/events',   label: 'Eventos' },
-              { to: '/officers', label: 'Equipo' },
+              { to: '/',         label: t.nav.home },
+              { to: '/about',    label: t.nav.about },
+              { to: '/events',   label: t.nav.events },
+              { to: '/officers', label: t.nav.officers },
             ].map(link => (
               <li key={link.to}>
                 <NavLink
@@ -35,6 +38,15 @@ const Header = () => {
                 </NavLink>
               </li>
             ))}
+            <li>
+              <button 
+                onClick={toggleLanguage} 
+                className="lang-switcher"
+                aria-label={language === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+              >
+                {language === 'es' ? 'EN' : 'ES'}
+              </button>
+            </li>
           </ul>
         </nav>
       </div>

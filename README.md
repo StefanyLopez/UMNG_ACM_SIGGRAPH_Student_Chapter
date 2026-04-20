@@ -26,6 +26,64 @@ src/
 
 - **Tokens de Diseño:** Centralización de colores, tipografías y espaciados en `tokens.css` mediante CSS Custom Properties, facilitando el mantenimiento y la evolución del sistema visual.
 
+## Internacionalización
+
+Implementamos una solución ligera de internacionalización basada exclusivamente en **React Context API**, sin dependencias externas.
+
+### ¿Cómo funciona?
+
+1. **`src/locales/translations.js`**: Contiene el diccionario de cadenas de texto para cada idioma (`es` y `en`).
+2. **`LanguageContext`**: Un proveedor global (`src/context/LanguageContext.jsx`) que gestiona el estado del idioma, persiste la elección en `localStorage` y detecta el idioma del navegador.
+3. **`useTranslation`**: Un hook personalizado para acceder a las traducciones desde cualquier componente.
+
+### ¿Cómo añadir nuevas traducciones?
+
+1. Abre `src/locales/translations.js`.
+2. Añade tus nuevas claves tanto en el objeto `es` como en el `en`. Mantén la misma estructura en ambos.
+
+   ```javascript
+   // src/locales/translations.js
+   const translations = {
+     es: {
+       mi_nueva_seccion: {
+         titulo: "Hola Mundo",
+       },
+     },
+     en: {
+       mi_nueva_seccion: {
+         titulo: "Hello World",
+       },
+     },
+   };
+   ```
+
+3. Usa el hook `useTranslation` en tu componente o página:
+
+   ```jsx
+   import { useTranslation } from "../context/LanguageContext";
+
+   export default function MiComponente() {
+     const { t } = useTranslation();
+     return <h1>{t.mi_nueva_seccion.titulo}</h1>;
+   }
+   ```
+
+### ¿Cómo añadir una nueva página?
+
+Si creas una página nueva, recuerda envolverla en el componente `Layout` dentro de `App.jsx` y pasarle el título y descripción traducidos:
+
+```jsx
+// src/App.jsx
+<Route
+  path="/nueva-pagina"
+  element={
+    <Layout title={t.seo.nueva.title} description={t.seo.nueva.desc}>
+      <NuevaPagina />
+    </Layout>
+  }
+/>
+```
+
 ## Desarrollo y Despliegue
 
 ### Entorno Local
