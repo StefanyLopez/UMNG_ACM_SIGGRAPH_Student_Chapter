@@ -10,9 +10,7 @@ const Header = () => {
       <div className="container header-inner">
         {/* Logo */}
         <NavLink to="/" className="site-logo" aria-label={t.nav.alt_logo}>
-          <div className="logo-mark" aria-hidden="true">
-            <span>S</span>
-          </div>
+          <img src={`${import.meta.env.BASE_URL}/logo_siggraph.svg`} alt="icono" className="logo-mark" />
           <div className="logo-text">
             <span className="logo-name">ACM SIGGRAPH</span>
             <span className="logo-sub">UMNG Student Chapter</span>

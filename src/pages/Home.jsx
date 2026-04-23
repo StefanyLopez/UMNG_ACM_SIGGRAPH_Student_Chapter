@@ -7,6 +7,7 @@ import '../styles/Home.css';
 /* ─── Componente ─────────────────────────────────────────── */
 export default function Home() {
   const { t } = useTranslation();
+  const baseURL = import.meta.env.BASE_URL || '/'; 
 
   const areas = [
     { icon: '🎨', titulo: t.areas.graphics.title,    desc: t.areas.graphics.desc, tag: t.areas.graphics.tag },
@@ -42,10 +43,10 @@ export default function Home() {
             {t.hero.subtitle}
           </p>
           <div className="hero-actions">
-            <Button href="/events" variant="primary" size="lg">
+            <Button href={`${baseURL}/events`} variant="primary" size="lg">
               {t.hero.cta_events}
             </Button>
-            <Button href="/about" variant="secondary" size="lg">
+            <Button href={`${baseURL}/about`} variant="secondary" size="lg">
               {t.hero.cta_about}
             </Button>
           </div>
@@ -107,10 +108,10 @@ export default function Home() {
               {t.cta.text}
             </p>
             <div className="cta-actions">
-              <Button href="/officers" variant="primary" size="lg">
+              <Button href={`${baseURL}/officers`} variant="primary" size="lg">
                 {t.cta.btn_team}
               </Button>
-              <Button href="/events" variant="secondary" size="lg">
+              <Button href={`${baseURL}/events`} variant="secondary" size="lg">
                 {t.cta.btn_events}
               </Button>
             </div>

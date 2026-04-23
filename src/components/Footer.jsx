@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="container footer-inner">
         <div className="footer-brand">
           <div className="footer-logo">
-            <div className="logo-mark logo-mark--sm" aria-hidden="true"><span>S</span></div>
+            <img src={`${import.meta.env.BASE_URL}/logo_siggraph.svg`} alt="icono" className="logo-mark" />
             <span className="footer-chapter-name">UMNG ACM SIGGRAPH</span>
           </div>
           <p className="footer-desc">
