@@ -11,6 +11,7 @@ export default function Events() {
     {
       id: 1,
       titulo: t.events.data.upcoming[0].titulo,
+      imagenUrl: "https://i.ytimg.com/vi/elA_iyGQRx0/maxresdefault.jpg",
       fecha: "2026-04-12",
       hora: "14:00",
       descripcion: t.events.data.upcoming[0].descripcion,
@@ -18,6 +19,7 @@ export default function Events() {
       tags: ["Workshop", "Blender", "Gratuito"],
       capacidad: 30,
       tipo: "workshop",
+      socialLink: "https://www.instagram.com/blender.official/",
       registroUrl: "#",
     },
     {
@@ -35,7 +37,6 @@ export default function Events() {
     {
       id: 3,
       titulo: t.events.data.upcoming[2].titulo,
-      imagenUrl: "https://i.ytimg.com/vi/elA_iyGQRx0/maxresdefault.jpg",
       fecha: "2026-05-10",
       hora: "09:00",
       descripcion: t.events.data.upcoming[2].descripcion,
@@ -43,7 +44,6 @@ export default function Events() {
       tags: ["Game Jam", "Competencia", "48h"],
       capacidad: 60,
       tipo: "jam",
-      socialLink: "https://www.instagram.com/blender.official/",
       registroUrl: "#",
     },
   ];
