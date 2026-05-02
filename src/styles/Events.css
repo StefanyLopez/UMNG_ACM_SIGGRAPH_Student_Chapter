@@ -6,8 +6,42 @@
 .event-card {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
   height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.event-card-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.event-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover .event-card-image img {
+  transform: scale(1.05);
+}
+
+.event-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  flex: 1;
 }
 
 .event-card-header {
@@ -65,8 +99,35 @@
 }
 
 .event-cta {
-  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
   margin-top: auto;
+}
+
+.event-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-4) var(--space-6);
+  background: rgba(4, 6, 26, 0.3);
+  border-top: 1px solid var(--border-medium);
+  margin-top: auto;
+}
+
+.event-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-primary);
+  font-size: var(--fs-sm);
+  color: var(--navy-300);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.event-social-link:hover {
+  color: var(--gold-500);
 }
 
 /* ── Pasados ───────────────────────────────────────────────── */

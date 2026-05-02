@@ -6,3 +6,4 @@ export { default as OfficerCard } from './OfficerCard';
 export { default as Header } from './Header';
 export { default as Footer } from './Footer';
 export { default as Layout } from './Layouts/Layout';
+export { default as EventCard } from './EventCard';

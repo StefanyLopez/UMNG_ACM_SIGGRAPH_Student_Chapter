@@ -1,7 +1,7 @@
-import React from 'react';
-import { Card, Badge, Button, Timeline } from '../components';
-import { useTranslation } from '../context/LanguageContext';
-import '../styles/Events.css';
+import React from "react";
+import { Card, Badge, Button, Timeline, EventCard } from "../components";
+import { useTranslation } from "../context/LanguageContext";
+import "../styles/Events.css";
 
 /* ─── Componente ─────────────────────────────────────────── */
 export default function Events() {
@@ -11,110 +11,137 @@ export default function Events() {
     {
       id: 1,
       titulo: t.events.data.upcoming[0].titulo,
-      fecha: '2026-04-12',
-      hora: '14:00',
+      fecha: "2026-04-12",
+      hora: "14:00",
       descripcion: t.events.data.upcoming[0].descripcion,
       lugar: t.events.data.upcoming[0].lugar,
-      tags: ['Workshop', 'Blender', 'Gratuito'],
+      tags: ["Workshop", "Blender", "Gratuito"],
       capacidad: 30,
-      tipo: 'workshop',
-      registroUrl: '#',
+      tipo: "workshop",
+      registroUrl: "#",
     },
     {
       id: 2,
       titulo: t.events.data.upcoming[1].titulo,
-      fecha: '2026-04-25',
-      hora: '16:00',
+      fecha: "2026-04-25",
+      hora: "16:00",
       descripcion: t.events.data.upcoming[1].descripcion,
       lugar: t.events.data.upcoming[1].lugar,
-      tags: ['Charla', 'VFX', 'Industria'],
+      tags: ["Charla", "VFX", "Industria"],
       capacidad: 80,
-      tipo: 'charla',
-      registroUrl: '#',
+      tipo: "charla",
+      registroUrl: "#",
     },
     {
       id: 3,
       titulo: t.events.data.upcoming[2].titulo,
-      fecha: '2026-05-10',
-      hora: '09:00',
+      imagenUrl: "https://i.ytimg.com/vi/elA_iyGQRx0/maxresdefault.jpg",
+      fecha: "2026-05-10",
+      hora: "09:00",
       descripcion: t.events.data.upcoming[2].descripcion,
       lugar: t.events.data.upcoming[2].lugar,
-      tags: ['Game Jam', 'Competencia', '48h'],
+      tags: ["Game Jam", "Competencia", "48h"],
       capacidad: 60,
-      tipo: 'jam',
-      registroUrl: '#',
+      tipo: "jam",
+      socialLink: "https://www.instagram.com/blender.official/",
+      registroUrl: "#",
     },
   ];
 
   const eventosPassados = [
     {
       title: t.events.data.past[0].title,
-      date: '2026-03-14',
+      date: "2026-03-14",
       speaker: null,
       description: t.events.data.past[0].description,
-      tags: ['Workshop', 'After Effects', 'Motion'],
+      tags: ["Workshop", "After Effects", "Motion"],
       attendees: 22,
     },
     {
       title: t.events.data.past[1].title,
-      date: '2026-03-05',
-      speaker: 'Mg. Laura Pinzón — UNAL',
+      date: "2026-03-05",
+      speaker: "Mg. Laura Pinzón — UNAL",
       description: t.events.data.past[1].description,
-      tags: ['Charla', 'IA', 'Diseño'],
+      tags: ["Charla", "IA", "Diseño"],
       attendees: 47,
     },
     {
       title: t.events.data.past[2].title,
-      date: '2026-03-05',
+      date: "2026-03-05",
       speaker: null,
       description: t.events.data.past[2].description,
-      tags: ['Workshop', 'Maya', 'Animación'],
+      tags: ["Workshop", "Maya", "Animación"],
       attendees: 18,
     },
     {
       title: t.events.data.past[3].title,
-      date: '2026-02-06',
+      date: "2026-02-06",
       speaker: null,
       description: t.events.data.past[3].description,
-      tags: ['Portfolio', 'Feedback', 'Comunidad'],
+      tags: ["Portfolio", "Feedback", "Comunidad"],
       attendees: 14,
     },
     {
       title: t.events.data.past[4].title,
-      date: '2026-01-24',
-      speaker: 'PhD. Marcela Torres — Profesora UMNG',
+      date: "2026-01-24",
+      speaker: "PhD. Marcela Torres — Profesora UMNG",
       description: t.events.data.past[4].description,
-      tags: ['Charla', 'CG', 'Tendencias'],
+      tags: ["Charla", "CG", "Tendencias"],
       attendees: 61,
     },
   ];
 
   const tipoColor = {
-    workshop: 'info',
-    charla:   'success',
-    jam:      'warning',
+    workshop: "info",
+    charla: "success",
+    jam: "warning",
   };
 
   function formatFecha(dateStr, lang) {
-    if (!dateStr) return '';
-    const [y, m, d] = dateStr.split('-');
-    const mesesEs = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
-    const mesesEn = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    const meses = lang === 'en' ? mesesEn : mesesEs;
-    return `${parseInt(d)} ${meses[parseInt(m)-1]} ${y}`;
+    if (!dateStr) return "";
+    const [y, m, d] = dateStr.split("-");
+    const mesesEs = [
+      "ene",
+      "feb",
+      "mar",
+      "abr",
+      "may",
+      "jun",
+      "jul",
+      "ago",
+      "sep",
+      "oct",
+      "nov",
+      "dic",
+    ];
+    const mesesEn = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    const meses = lang === "en" ? mesesEn : mesesEs;
+    return `${parseInt(d)} ${meses[parseInt(m) - 1]} ${y}`;
   }
 
   return (
     <main className="events">
-
       {/* ── Page header ── */}
       <section className="page-hero" aria-label={t.nav.events}>
         <div className="container">
-          <Badge variant="info" size="sm">{t.events.hero.eyebrow}</Badge>
+          <Badge variant="info" size="sm">
+            {t.events.hero.eyebrow}
+          </Badge>
           <h1 className="page-hero-title">{t.events.hero.title}</h1>
-          <p className="page-hero-subtitle">
-            {t.events.hero.subtitle}
-          </p>
+          <p className="page-hero-subtitle">{t.events.hero.subtitle}</p>
         </div>
       </section>
 
@@ -123,39 +150,20 @@ export default function Events() {
         <div className="container">
           <header className="section-header">
             <span className="accent-line" aria-hidden="true" />
-            <h2 id="proximos-titulo" className="section-title">{t.events.upcoming.title}</h2>
+            <h2 id="proximos-titulo" className="section-title">
+              {t.events.upcoming.title}
+            </h2>
           </header>
 
           <ul className="grid grid-auto events-grid">
-            {proximosEventos.map(ev => (
+            {proximosEventos.map((ev) => (
               <li key={ev.id}>
-                <Card variant="default" className="event-card">
-                  <div className="event-card-header">
-                    <Badge variant={tipoColor[ev.tipo] || 'neutral'} size="sm">
-                      {ev.tipo.charAt(0).toUpperCase() + ev.tipo.slice(1)}
-                    </Badge>
-                    <time className="event-fecha">{formatFecha(ev.fecha, language)}</time>
-                  </div>
-
-                  <h3 className="event-titulo">{ev.titulo}</h3>
-                  <p className="event-desc">{ev.descripcion}</p>
-
-                  <div className="event-meta">
-                    <span>{t.events.meta.location.replace('{place}', ev.lugar)}</span>
-                    <span>{t.events.meta.time.replace('{time}', ev.hora)}</span>
-                    <span>{t.events.meta.capacity.replace('{capacity}', ev.capacidad)}</span>
-                  </div>
-
-                  <div className="event-tags">
-                    {ev.tags.map((tag, i) => (
-                      <Badge key={i} variant="neutral" size="sm">{tag}</Badge>
-                    ))}
-                  </div>
-
-                  <Button href={ev.registroUrl} variant="primary" size="sm" className="event-cta">
-                    {t.events.meta.register}
-                  </Button>
-                </Card>
+                <EventCard
+                  event={ev}
+                  tipoColor={tipoColor}
+                  formatFecha={formatFecha}
+                  language={language}
+                />
               </li>
             ))}
           </ul>
@@ -163,14 +171,17 @@ export default function Events() {
       </section>
 
       {/* ── Pasados ── */}
-      <section className="section pasados-section" aria-labelledby="pasados-titulo">
+      <section
+        className="section pasados-section"
+        aria-labelledby="pasados-titulo"
+      >
         <div className="container">
           <header className="section-header">
             <span className="accent-line" aria-hidden="true" />
-            <h2 id="pasados-titulo" className="section-title">{t.events.past.title}</h2>
-            <p className="section-subtitle">
-              {t.events.past.subtitle}
-            </p>
+            <h2 id="pasados-titulo" className="section-title">
+              {t.events.past.title}
+            </h2>
+            <p className="section-subtitle">{t.events.past.subtitle}</p>
           </header>
 
           <Timeline items={eventosPassados} />
@@ -178,15 +189,20 @@ export default function Events() {
       </section>
 
       {/* ── Archivo ── */}
-      <section className="section archivo-section" aria-labelledby="archivo-titulo">
+      <section
+        className="section archivo-section"
+        aria-labelledby="archivo-titulo"
+      >
         <div className="container">
           <div className="archivo-box">
-            <span className="archivo-icon" aria-hidden="true">📁</span>
+            <span className="archivo-icon" aria-hidden="true">
+              📁
+            </span>
             <div>
-              <h2 id="archivo-titulo" className="archivo-titulo">{t.events.archive.title}</h2>
-              <p className="archivo-desc">
-                {t.events.archive.desc}
-              </p>
+              <h2 id="archivo-titulo" className="archivo-titulo">
+                {t.events.archive.title}
+              </h2>
+              <p className="archivo-desc">{t.events.archive.desc}</p>
             </div>
             <Button variant="tertiary" size="sm" disabled>
               {t.events.archive.btn}
@@ -194,7 +210,6 @@ export default function Events() {
           </div>
         </div>
       </section>
-
     </main>
   );
 }
